@@ -118,17 +118,11 @@ public class MeetingRequest implements Comparable<MeetingRequest> {
 		}
 
 		if (this.getSubmissionTime().isBefore(that.getSubmissionTime())) {
-			if (this.getStartTime().isBefore(that.getStartTime())) {
-				return AFTER;
-			}
-			return BEFORE;
+			return (this.getStartTime().isBefore(that.getStartTime()))? AFTER : BEFORE;
 		}
 
 		if (this.getSubmissionTime().isAfter(that.getSubmissionTime())) {
-			if (this.getStartTime().isBefore(that.getStartTime())) {
-				return BEFORE;
-			}
-			return AFTER;
+			return (this.getStartTime().isBefore(that.getStartTime()))? BEFORE : AFTER;
 		}
 
 		return EQUAL;
